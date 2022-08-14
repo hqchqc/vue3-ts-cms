@@ -1,5 +1,5 @@
 <template>
-  <el-form label-width="60px">
+  <el-form label-width="60px" ref="formRef">
     <el-form-item label="手机号" prop="phone">
       <el-input v-model="phone.number" />
     </el-form-item>
@@ -15,8 +15,12 @@
 </template>
 
 <script setup lang="ts">
-import { reactive } from 'vue'
+import type { ElForm } from 'element-plus'
+import { reactive, defineExpose, ref } from 'vue'
+import { useStore } from 'vuex'
 
+const formRef = ref<InstanceType<typeof ElForm>>()
+const store = useStore()
 const phone = reactive({
   number: '',
   code: ''
@@ -25,6 +29,15 @@ const phone = reactive({
 const getCode = () => {
   console.log('验证码')
 }
+
+const loginAction = () => {
+  // 开始进行登录验证
+  store.dispatch('login/phoneLoginAction', { ...phone })
+}
+
+defineExpose({
+  loginAction
+})
 </script>
 
 <style scoped>

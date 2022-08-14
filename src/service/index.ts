@@ -1,3 +1,4 @@
+import localCache from '@/utils/cache'
 // service统一出口
 import HYRequest from './request'
 import { BASE_URL, TIME_OUT } from './request/config'
@@ -8,7 +9,7 @@ const hyRequest = new HYRequest({
   incterceptors: {
     requestInterceptor: (config) => {
       // 携带token的拦截
-      const token = ''
+      const token = localCache.getCache('token')
       if (token && config.headers) {
         config.headers.Authorization = `Bearer ${token}`
       }
