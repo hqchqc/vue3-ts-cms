@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import 'normalize.css'
 import './assets/css/index.less'
+import 'uno.css'
 
 // import '../src/service/axios_demo'
 // import hyRequest from './service'
