@@ -8,13 +8,14 @@
     </template>
     <div class="content">
       <div>面包屑</div>
-      <div>用户信息</div>
+      <user-info />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref, defineEmits } from 'vue'
+import UserInfo from './user-info.vue'
 
 const emit = defineEmits(['foldChange'])
 
