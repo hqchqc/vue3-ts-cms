@@ -17,6 +17,7 @@
           <el-sub-menu :index="item.id + ''">
             <template #title>
               <div :class="handleCalcIcon(item.icon)" />
+              <!-- 按需加载有时候不生效 -->
               <!-- <div class="i-ep-monitor"></div>
               <div class="i-ep-setting"></div>
               <div class="i-ep-goods"></div>
